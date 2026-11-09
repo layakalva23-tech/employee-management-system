@@ -23,7 +23,21 @@ public class Main {
         service.addEmployee(emp);
         service.viewEmployees();
 
+        // NEW: Salary increment feature
+
+        System.out.println("\n--- Employee Salary Increment ---");
+
+        System.out.print("Enter Employee ID to update salary: ");
+        int searchId = sc.nextInt();
+
+        System.out.print("Enter Increment Percentage: ");
+        double percentage = sc.nextDouble();
+
+        service.incrementSalary(searchId, percentage);
+
+        System.out.println("\n--- Updated Employee Details ---");
+        service.viewEmployees();
+
         sc.close();
     }
 }
-
