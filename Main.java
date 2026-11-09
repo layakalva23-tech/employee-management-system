@@ -1,17 +1,29 @@
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
         EmployeeService service = new EmployeeService();
 
-        Employee emp1 = new Employee(101, "John", 50000);
-        Employee emp2 = new Employee(102, "Sara", 60000);
+        System.out.print("Enter Employee ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
 
-        service.addEmployee(emp1);
-        service.addEmployee(emp2);
+        System.out.print("Enter Employee Name: ");
+        String name = sc.nextLine();
 
-        System.out.println("Employee List:");
+        System.out.print("Enter Salary: ");
+        double salary = sc.nextDouble();
+
+        Employee emp = new Employee(id, name, salary);
+
+        service.addEmployee(emp);
         service.viewEmployees();
+
+        sc.close();
     }
 }
+
