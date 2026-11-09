@@ -22,7 +22,7 @@ public class Employee {
     public double getSalary() {
         return salary;
     }
-
+ feature/salary-increment
     // NEW METHOD
     public void setSalary(double salary) {
         this.salary = salary;
