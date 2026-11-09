@@ -1,28 +1,36 @@
 
-import java.util.Scanner;
+public class Employee {
 
-public class Main {
+    private int id;
+    private String name;
+    private double salary;
 
-    public static void main(String[] args) {
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
 
-        Scanner sc = new Scanner(System.in);
-        EmployeeService service = new EmployeeService();
+    public int getId() {
+        return id;
+    }
 
-        System.out.print("Enter Employee ID: ");
-        int id = sc.nextInt();
-        sc.nextLine();
+    public String getName() {
+        return name;
+    }
 
-        System.out.print("Enter Employee Name: ");
-        String name = sc.nextLine();
+    public double getSalary() {
+        return salary;
+    }
 
-        System.out.print("Enter Salary: ");
-        double salary = sc.nextDouble();
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
-        Employee emp = new Employee(id, name, salary);
-
-        service.addEmployee(emp);
-        service.viewEmployees();
-
-        sc.close();
+    @Override
+    public String toString() {
+        return "Employee ID: " + id
+                + ", Name: " + name
+                + ", Salary: " + salary;
     }
 }
