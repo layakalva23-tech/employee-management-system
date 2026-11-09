@@ -30,4 +30,3 @@ public class Employee {
                 + ", Salary: " + salary;
     }
 }
-
