@@ -23,8 +23,6 @@ public class Main {
         service.addEmployee(emp);
         service.viewEmployees();
 
-        // NEW: Salary increment feature
-
         System.out.println("\n--- Employee Salary Increment ---");
 
         System.out.print("Enter Employee ID to update salary: ");
