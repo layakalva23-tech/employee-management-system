@@ -20,5 +20,54 @@ public class EmployeeService {
             System.out.println(employee);
         }
     }
+
+
+    public void incrementSalary(int id, double percentage) {
+
+        if (percentage < 0 || !Double.isFinite(percentage)) {
+            System.out.println("Invalid increment percentage!");
+            return;
+        }
+
+
+        for (Employee employee : employees) {
+
+            if (employee.getId() == id) {
+
+
+                double oldSalary = employee.getSalary();
+
+
+                double incrementAmount =
+                        oldSalary * (percentage / 100);
+
+
+                double newSalary = oldSalary + incrementAmount;
+
+
+                if (!Double.isFinite(newSalary)) {
+                    System.out.println("Invalid calculated salary!");
+                    return;
+                }
+
+
+                employee.setSalary(newSalary);
+
+
+                System.out.println("Employee Found: "
+                        + employee.getName());
+
+                System.out.println("Old Salary: " + oldSalary);
+                System.out.println("Increment: " + percentage + "%");
+                System.out.println("New Salary: " + newSalary);
+                System.out.println("Salary updated successfully!");
+
+                return;
+            }
+        }
+
+
+        System.out.println("Employee not found!");
+    }
 }
 
