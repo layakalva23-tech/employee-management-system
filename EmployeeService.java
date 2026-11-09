@@ -20,12 +20,10 @@ public class EmployeeService {
             System.out.println(employee);
         }
     }
- feature/salary-increment
 
-    // NEW: Salary increment functionality
     public void incrementSalary(int id, double percentage) {
 
-        if (percentage < 0 || !Double.isFinite(percentage)) {
+        if (!Double.isFinite(percentage) || percentage < 0) {
             System.out.println("Invalid increment percentage!");
             return;
         }
@@ -35,12 +33,8 @@ public class EmployeeService {
             if (employee.getId() == id) {
 
                 double oldSalary = employee.getSalary();
-
-                double incrementAmount =
-                        oldSalary * (percentage / 100);
-
-                double newSalary =
-                        oldSalary + incrementAmount;
+                double incrementAmount = oldSalary * (percentage / 100);
+                double newSalary = oldSalary + incrementAmount;
 
                 if (!Double.isFinite(newSalary)) {
                     System.out.println("Invalid calculated salary!");
@@ -49,9 +43,7 @@ public class EmployeeService {
 
                 employee.setSalary(newSalary);
 
-                System.out.println("Employee Found: "
-                        + employee.getName());
-
+                System.out.println("Employee Found: " + employee.getName());
                 System.out.println("Old Salary: " + oldSalary);
                 System.out.println("Increment: " + percentage + "%");
                 System.out.println("New Salary: " + newSalary);
@@ -63,5 +55,4 @@ public class EmployeeService {
 
         System.out.println("Employee not found!");
     }
-
 }
